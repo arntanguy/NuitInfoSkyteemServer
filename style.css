@@ -6,13 +6,19 @@
 	position:relative;
 }
 
-#header img.shut_down {
+#header img.quit {
 	position:absolute;
 	right:5px;
 	top:5px;
 }
 
-#header img.shut_down:hover {
+#header img.back {
+	position:absolute;
+	left:5px;
+	top:5px;
+}
+
+#header img:hover {
 	cursor:pointer;
 }
 
