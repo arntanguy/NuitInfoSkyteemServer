@@ -7,26 +7,6 @@
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>      
-    <script type="text/javascript">
-
-         $(document).ready(function() {
-            $("#submit").click(function(){
- 
-                var formData = $("#callAjaxForm").serialize();
- 
-                $.ajax({
-                    type: "POST",
-                    url: "connect.php",
-                    cache: false,
-                    data: formData,
-                    success: onSuccess,
-                    error: onError
-                });
- 
-                return false;
-            });
-        });
-    </script>
  </head>
 
  <body onload="onLoad();">
@@ -45,6 +25,11 @@
             <p>Vous offrez à : Bidule truc</p>
         </div>
         <ul data-role="listview" data-inset="true" data-filter="true">
+            <li><a href="index.html">
+                <img src="images/icones/sortie-icone.png" />
+                <h3>Broken Bells</h3>
+                <p>Broken Bells</p></a>
+            </li>
             <li><a href="#" ui-li-icon="image/icones/sortie-icone.png">Cadeau de Geek</a></li>
             <li><a href="#">Autre cadeau</a></li>
         </ul>
