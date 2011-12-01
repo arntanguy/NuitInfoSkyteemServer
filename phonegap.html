@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+
+  <head>
+    <title>PhoneGap</title>
+
+  <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>      
+
+  <script type="text/javascript" charset="utf-8">
+	// This is your app's init method. Here's an example of how to use it
+function onLoad() {
+
+    document.addEventListener("deviceready", onDR, false);
+
+} 
+
+function onDR(){
+    document.addEventListener("backbutton", backKeyDown, true);
+
+    //boot your app...
+
+}
+
+function backKeyDown() { 
+
+    // do something here if you wish
+
+    alert('go back!');
+    navigator.app.exitApp()
+}
+  </script>
+
+  </head>
+
+  <body onload="onLoad();">
+       <h1>Welcome to PhoneGap</h1>
+
+       <h2>Edit assets/www/index.html</h2>
+
+  </body>
+
+</html>
