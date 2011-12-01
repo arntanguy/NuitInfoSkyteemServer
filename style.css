@@ -1,0 +1,17 @@
+#header {
+	position:relative;
+}
+
+#header img.shut_down {
+	position:absolute;
+	right:5px;
+	top:5px;
+}
+
+#header img.shut_down:hover {
+	cursor:pointer;
+}
+
+#content {
+	text-align:center;
+}
