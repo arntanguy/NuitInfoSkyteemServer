@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+
+  <head>
+    <title>EasyGift</title>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>      
+    <script type="text/javascript" charset="utf-8">
+        // This is your app's init method. Here's an example of how to use it
+        function onLoad() {
+            document.addEventListener("deviceready", onDR, false);
+        } 
+
+        function onDR(){
+            // add event listener when the backbutton is pressed
+            document.addEventListener("backbutton", backKeyDown, true);
+        }
+
+        // Handles how the application is deleted:
+        function backKeyDown() { 
+            //TODO
+            //alert('go back!');
+            navigator.app.exitApp()
+        }
+
+         $(document).ready(function() {
+            $("#submit").click(function(){
+ 
+                var formData = $("#callAjaxForm").serialize();
+ 
+                $.ajax({
+                    type: "POST",
+                    url: "connect.php",
+                    cache: false,
+                    data: formData,
+                    success: onSuccess,
+                    error: onError
+                });
+ 
+                return false;
+            });
+        });
+    </script>
+ </head>
+
+ <body onload="onLoad();">
+<div data-role="page">
+
+	<div data-role="header">
+    <h1>EasyGift</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+        <form id="callAjaxForm">
+            <table>
+                <td><label for="id">Identifiant</label> </td><td> <input type="text" name="id" title="Identifiant" /> </td> <tr />
+                <td><label for="password">Password</label> </td><td><input type="password" name="password" title="Password" /> </td> <tr />
+                <td colspan="2"><button id="submit" type="submit">Submit</button></td>
+            </table>
+        </form>
+	</div><!-- /content -->
+
+</div><!-- /page -->
+
+ </body>
+</html>
