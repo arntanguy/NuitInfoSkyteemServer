@@ -1,56 +1,66 @@
 <!DOCTYPE HTML>
 <html>
   <head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>EasyGift</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
-	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>      
-    <script type="text/javascript" charset="utf-8" src="phoneapp.js"></script>      
-    <script type="text/javascript">
-         $(document).ready(function() {
-            $("#submit").click(function(){
- 
-                var formData = $("#callAjaxForm").serialize();
- 
-                $.ajax({
-                    type: "POST",
-                    url: "connect.php",
-                    cache: false,
-                    data: formData,
-                    success: onSuccess,
-                    error: onError
-                });
- 
-                return false;
-            });
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+		<script type="text/javascript" charset="utf-8" src="phoneapp.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      // This is your app's init method. Here's an example of how to use it
+      function onLoad() {
+        document.addEventListener("deviceready", onDR, false);
+      }
+
+      function onDR(){
+        // add event listener when the backbutton is pressed
+        document.addEventListener("backbutton", backKeyDown, true);
+      }
+
+      // Handles how the application is deleted:
+      function backKeyDown() {
+        //TODO
+        //alert('go back!');
+        navigator.app.exitApp()
+      }
+
+      $(document).ready(function() {
+        $("#submit").click(function(){
+
+          var formData = $("#callAjaxForm").serialize();
+
+          $.ajax({
+            type: "POST",
+            url: "connect.php",
+            cache: false,
+            data: formData,
+            success: onSuccess,
+            error: onError
+          });
+
+          return false;
         });
+      });
     </script>
- </head>
+  </head>
 
- <body onload="onLoad();">
-<div data-role="page">
+  <body onload="onLoad();">
+    <!-- page -->
+    <div data-role="page">
+      <!-- header -->
+      <div data-role="header" id="header">
+        <h1>EasyGift - Identify yourself</h1>
+        <img src="images/icones/sortie-icone.png" alt="Shutdown logo" class="shut_down">
+      </div>
 
-	<div data-role="header">
-    <h1>EasyGift</h1>
-	</div><!-- /header -->
-    <div id="app_header">
-          <table>
-              <td>Identify yourself</td><td><img src="images/icones/sortie-icone.png" alt="Shutdown logo"></td>
-          </table>
+      <!-- content -->
+      <div data-role="content" id="content">
+        <img src="images/logo.png" alt="Logo" class="logo">
+        <a href="index.html" data-role="button" data-icon="check">Connect to Facebook</a>
+      </div>
     </div>
-	<div data-role="content">	
-        <form id="callAjaxForm">
-            <table>
-                <td><label for="id">Login</label> </td><td> <input type="text" name="id" title="Identifiant" /> </td> <tr />
-                <td><label for="password">Password</label> </td><td><input type="password" name="password" title="Password" /> </td> <tr />
-                <td colspan="2"><button id="submit" type="submit">Submit</button></td>
-            </table>
-        </form>
-	</div><!-- /content -->
-
-</div><!-- /page -->
-
- </body>
+  </body>
 </html>
