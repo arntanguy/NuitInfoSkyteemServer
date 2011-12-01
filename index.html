@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
   <head>
     <title>EasyGift</title>
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
@@ -51,11 +51,15 @@
 	<div data-role="header">
     <h1>EasyGift</h1>
 	</div><!-- /header -->
-
+    <div id="app_header">
+          <table>
+              <td>Identify yourself</td><td><img src="images/icones/sortie-icone.png" alt="Shutdown logo"></td>
+          </table>
+    </div>
 	<div data-role="content">	
         <form id="callAjaxForm">
             <table>
-                <td><label for="id">Identifiant</label> </td><td> <input type="text" name="id" title="Identifiant" /> </td> <tr />
+                <td><label for="id">Login</label> </td><td> <input type="text" name="id" title="Identifiant" /> </td> <tr />
                 <td><label for="password">Password</label> </td><td><input type="password" name="password" title="Password" /> </td> <tr />
                 <td colspan="2"><button id="submit" type="submit">Submit</button></td>
             </table>
