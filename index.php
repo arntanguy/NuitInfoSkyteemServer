@@ -1,15 +1,13 @@
 <?php
-		include('includes/includes.php');
+	include('includes/includes.php');
 
-		// Login or logout url will be needed depending on current user state.
-		if ($user) {
-			$logoutUrl = $facebook->getLogoutUrl();
-		} else {
-			$loginUrl = $facebook->getLoginUrl(array('scope' => 'read_friendlists'));
-		}
-
-		
-	?>
+	// Login or logout url will be needed depending on current user state.
+	if ($user) {
+		$logoutUrl = $facebook->getLogoutUrl();
+	} else {
+		$loginUrl = $facebook->getLoginUrl(array('scope' => 'read_friendlists'));
+	}
+?>
 <!DOCTYPE HTML>
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
   <head>
