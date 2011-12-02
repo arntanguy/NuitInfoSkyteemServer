@@ -57,8 +57,15 @@
 						// Récupérer la liste d'amis
 						$friends = $facebook->api('/me/friends');
 						// Afficher la liste d'amis
-						afficherAmis($friends);
-
+						$data = $friends['data'];
+	
+						foreach ($data as $ami)	{
+						?>
+							<li style="min-height:50px;padding:0px;padding-left:70px;">
+								<img src="https://graph.facebook.com/<?php echo $ami['id']; ?>/picture"> <h3><?php echo $ami['name']; ?></h3>
+							</li>
+						<?php
+						}
 						?>
         </ul>
 	</div>
