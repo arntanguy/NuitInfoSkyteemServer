@@ -10,7 +10,9 @@ function onDR(){
 
 // Handles how the application is deleted:
 function backKeyDown() { 
-    //TODO
-    //alert('go back!');
+    closeApp();
+}
+
+function closeApp() {
     navigator.app.exitApp()
 }
