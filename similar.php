@@ -13,7 +13,6 @@ function similar($name) {
 
     $similar = array();
     foreach ($movies->xpath("//resource") as $content) {
-        echo $content->name;
         array_push($similar, (string)$content->name);
     }
     return $similar;
