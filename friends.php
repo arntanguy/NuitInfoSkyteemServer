@@ -1,3 +1,31 @@
+<?php
+	include('includes/includes.php');
+
+	// Create our Application instance (replace this with your appId and secret).
+	$facebook = new Facebook(array(
+		'appId'  => $api_key,
+		'secret' => $secret,
+	));
+
+	// Get User ID
+	$user = $facebook->getUser();
+
+	// We may or may not have this data based on whether the user is logged in.
+	//
+	// If we have a $user id here, it means we know the user is logged into
+	// Facebook, but we don't know if the access token is valid. An access
+	// token is invalid if the user logged out of Facebook.
+
+	if ($user) {
+		try {
+		  // Proceed knowing you have a logged in user who's authenticated.
+		  $user_profile = $facebook->api('/me');
+		} catch (FacebookApiException $e) {
+		  error_log($e);
+		  $user = null;
+		}
+	}
+?>
 <!DOCTYPE HTML>
 <html>
   <head>
@@ -22,15 +50,16 @@
   </div>
 	<div data-role="content">	
         <div id="offer_to">
-            <p>Vous offrez à : Bidule truc</p>
+            <p>Choisisser un ami</p>
         </div>
         <ul data-role="listview" data-inset="true" data-filter="true">
-            <li> <img src="images/icones/sortie-icone.png"/>
-                <h3>Broken Bells</h3>
-                <p>Broken Bells</p>
-            </li>
-            <li><a href="#">Arnaud TANGUY</a><img src="image/icones/sortie-icone.png"></li>
-            <li><a href="#">Jean-Paul Stromboni</a></li>
+						<?php
+						// Récupérer la liste d'amis
+						$friends = $facebook->api('/me/friends');
+						// Afficher la liste d'amis
+						afficherAmis($friends);
+
+						?>
         </ul>
 	</div>
 
