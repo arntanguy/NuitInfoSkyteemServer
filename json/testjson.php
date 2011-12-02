@@ -30,6 +30,8 @@
 	function getObjJSON($url){
 		$code_html=file_get_contents($url);
 		$obj = json_decode($code_html);
-		var_dump($obj);
+		echo '<pre>';
+        print_r($obj);
+        echo '</pre>';
 	}
 ?>
