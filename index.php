@@ -39,7 +39,7 @@
 						if($user) {
 							echo(" - ".$user_profile['name']);
 						} ?></h1>
-        <img src="images/icones/quit.png" alt="quit" class="quit">
+        <img src="images/icones/quit.png" alt="quit" class="quit" onClick="closeApp();">
       </div>
       <!-- content -->
       <div data-role="content" id="content">
