@@ -42,7 +42,6 @@
 						} ?></h1>
         <img src="images/icones/quit.png" alt="quit" class="quit">
       </div>
-			<?php echo $_SERVER["REQUEST_URI"] ?>
       <!-- content -->
       <div data-role="content" id="content">
         <img src="images/logo.png" alt="Logo" class="logo">

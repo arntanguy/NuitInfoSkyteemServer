@@ -25,9 +25,9 @@
   </div>
 	<div data-role="content" id="content">	
         <div id="offer_to">
-            <p>Choisisser un ami</p>
+            <p>Choose a friend</p>
         </div>
-        <ul data-role="listview" data-inset="true" data-filter="true">
+        <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Find a friend ...">
 						<?php
 						// Récupérer la liste d'amis
 						$friends = $facebook->api('/me/friends');
@@ -36,8 +36,10 @@
 	
 						foreach ($data as $ami)	{
 						?>
-							<li style="min-height:50px;padding:0px;padding-left:70px;">
-								<img src="https://graph.facebook.com/<?php echo $ami['id']; ?>/picture"> <h3><?php echo $ami['name']; ?></h3>
+							<li style="max-height:50px;padding:0px;">
+								<a href="filter.php?id=<?php echo $ami['id']; ?>" style="padding:5px;padding-left:70px;min-height:40px;">
+									<img src="https://graph.facebook.com/<?php echo $ami['id']; ?>/picture"> <h3><?php echo $ami['name']; ?></h3>
+								</a>
 							</li>
 						<?php
 						}
