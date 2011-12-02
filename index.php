@@ -5,7 +5,7 @@
 	if ($user) {
 		$logoutUrl = $facebook->getLogoutUrl();
 	} else {
-		$loginUrl = $facebook->getLoginUrl(array('scope' => 'read_friendlists'));
+		$loginUrl = $facebook->getLoginUrl(array('scope' => 'read_friendlists,friends_likes'));
 	}
 ?>
 <!DOCTYPE HTML>
@@ -15,7 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
     <title>EasyGift</title>
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
-    <link rel="stylesheet" href="style.css" type="text/css"/>
+    <link rel="stylesheet" href="/style.css" type="text/css"/>
 		<script type="text/javascript" charset="utf-8">
 			<?php
 				if(!empty($_GET['state'])) {
