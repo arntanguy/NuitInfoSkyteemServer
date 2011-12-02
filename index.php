@@ -14,9 +14,10 @@
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
   <head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
     <title>EasyGift</title>
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css" type="text/css"/>
 		<script type="text/javascript" charset="utf-8">
 			<?php
 				if(!empty($_GET['state'])) {
@@ -47,7 +48,7 @@
         <img src="images/logo.png" alt="Logo" class="logo">
         <?php if ($user): ?>
 					<a href="<?php echo $logoutUrl; ?>" data-role="button" data-icon="delete">Logout</a>
-					<a href="friends.php" data-role="button" data-icon="check" >Mes amis</a>
+					<a href="friends.php" data-role="button" data-icon="arrow-r" data-iconpos="right">Mes amis</a>
 				<?php else: ?>
 					<a href="<?php echo $loginUrl; ?>" data-role="button" data-icon="check" >Connect with Facebook</a>
 				<?php endif ?>
