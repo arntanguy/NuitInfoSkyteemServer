@@ -1,12 +1,12 @@
 <?php
-	creatURL('/music/artist', "The Police", "");
 	
-	function creatURL($type, $name, $album){
+	function freebase($type, $name, $album){
         if(empty($album)) $album = "[]";
 
 		$guill = "%22";
 		$space = "%20";
 		
+	//	$url = 'https://www.googleapis.com/freebase/v1/mqlread?query={%22type%22:%22/music/artist%22,%22name%22:%22The%20Police%22,%22album%22:[]}';
 		$url = 'https://www.googleapis.com/freebase/v1/mqlread?query=';
 		
 		$arr = array("type"=>$type,"name"=>$name,"album"=>$album);
@@ -21,17 +21,18 @@
         $url = str_replace('\\', '', $url);
 		
 		echo "\n".$url;
-		getObjJSON($url);
-		
-		$url = 'https://www.googleapis.com/freebase/v1/mqlread?query={%22type%22:%22/music/artist%22,%22name%22:%22The%20Police%22,%22album%22:[]}';
-                https://www.googleapis.com/freebase/v1/mqlread?query={%22type%22:%22/music/artiste%22,%22name%22:%22The%20Police%22,%22album%22:[]}
+		return getObjJSON($url);
 	}
 	
 	function getObjJSON($url){
 		$code_html=file_get_contents($url);
 		$obj = json_decode($code_html);
-		echo '<pre>';
-        print_r($obj);
+        echo '<pre>';
+        return $obj->result->album;
         echo '</pre>';
 	}
+
+	print_r(freebase('/music/artist', "The Police", ""));
+
+
 ?>
