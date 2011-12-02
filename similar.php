@@ -1,6 +1,4 @@
 <?php
-require_once 'lib/xmlparser.php';
-
 function similar($name) {
     // construire l'url
     $url = "http://www.tastekid.com/ask/ws?q=";
@@ -21,5 +19,3 @@ function similar($name) {
     return $similar;
 }
 ?>
-
-</body>
