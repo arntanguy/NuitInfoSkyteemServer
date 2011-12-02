@@ -1,5 +1,6 @@
 <?php
   include('includes/includes.php');
+  include('similar.php');
   $ami_Id = $_GET["id"];
   $name = $_GET["name"];
 ?>
@@ -41,16 +42,26 @@
           if (!empty($films))	{
           	$titre = $films[0]["name"];
 
-          	echo $titre;
-
+		//	echo $titre;
+          	
           	// Chercher films en rapport
+          	$similarid = similar($titre);
+          	
+          	// Prendre les deux premiers
+          	for($i = 0 ; i < 2 ; $i++)	{
+          		 ?>
+          		 <li><a href="#" ui-li-icon="image/icones/sortie-icone.png"><?php echo $similarid[$i]; ?></a></li>
+          		 <?php 
+          	}
 
           }
-          ?>
-          
-          
-          <li><a href="#" ui-li-icon="image/icones/sortie-icone.png">Cadeau de Geek</a></li>
-          <?php 
+          else	{
+          	     ?>
+          		 <li><a href="#" ui-li-icon="image/icones/sortie-icone.png"><?php echo "rien trouvé"; ?></a></li>
+          		 <?php 
+          }
+
+/*
           // Chercher un groupe
           $musics = $facebook->api("/$ami_Id/music");
           
@@ -61,13 +72,20 @@
           $band = $musics["data"];
           $titre = $band[0]["name"]; 
           
-          echo $titre;
+         // echo $titre;
           
-          // Chercher films en rapport
-          
+          // Chercher groupe en rapport
+          	$similarid = similar($titre);
+          	
+          	// Prendre les deux premiers
+          	for($i = 0 ; i < 2 ; $i++)	{
+          		 ?>
+          		 <li><a href="#" ui-li-icon="image/icones/sortie-icone.png"><?php echo $similarid[$i]; ?></a></li>
+          		 <?php
+          	}
           }
+          */
           ?>
-          <li><a href="#">Autre cadeau</a></li>
         </ul>
       </div>
     </div>
