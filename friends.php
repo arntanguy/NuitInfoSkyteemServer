@@ -34,7 +34,7 @@
             foreach ($data as $ami) {
           ?>
           <li style="max-height:50px;padding:0px;">
-            <a href="gifts.php?id=<?php echo $ami['id']; ?>" style="padding:5px;padding-left:70px;min-height:40px;">
+            <a href="gifts.php?id=<?php echo $ami['id']; ?>&name=<?php echo $ami['name']; ?>" style="padding:5px;padding-left:70px;min-height:40px;">
               <img src="https://graph.facebook.com/<?php echo $ami['id']; ?>/picture"> <h3><?php echo $ami['name']; ?></h3>
             </a>
           </li>
