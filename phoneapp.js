@@ -16,3 +16,8 @@ function backKeyDown() {
 function closeApp() {
     navigator.app.exitApp()
 }
+
+
+function redirect (page) {
+    window.location = page;
+}
